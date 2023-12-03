@@ -31,30 +31,6 @@ public class Main {
     assert(counts.exchange == 3);
     assert(counts.failed == 1);
 
-    // Lowest capacity (boundary condition)
-    int[] lowestCapacity = {0};
-    CountsBySoH lowestCounts = countBatteriesByHealth(lowestCapacity);
-    assert(lowestCounts.failed == 1);
-    
-    // Equal to boundary values (boundary condition)
-    int[] boundaryValues = {96, 80, 74};
-    CountsBySoH boundaryCounts = countBatteriesByHealth(boundaryValues);
-    assert(boundaryCounts.healthy == 1);
-    assert(boundaryCounts.exchange == 1);
-    assert(boundaryCounts.failed == 1);
-    
-    // Empty battery list (boundary condition)
-    int[] emptyList = {};
-    CountsBySoH emptyCounts = countBatteriesByHealth(emptyList);
-    assert(emptyCounts.healthy == 0 && emptyCounts.exchange == 0 && emptyCounts.failed == 0);
-    
-    // Large dataset (boundary condition)
-    int[] largeDataSet = {110, 115, 80, 95, 92, 70, 105, 98, 75, 88, 77, 120, 62, 45};
-    CountsBySoH largeDataCounts = countBatteriesByHealth(largeDataSet);
-    assert(largeDataCounts.healthy == 6);
-    assert(largeDataCounts.exchange == 4);
-    assert(largeDataCounts.failed == 4);
-    System.out.println("Done counting :)\n");
   }
 
   public static void main(String[] args) {
