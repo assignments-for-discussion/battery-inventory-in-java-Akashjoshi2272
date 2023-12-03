@@ -31,6 +31,22 @@ public class Main {
     assert(counts.exchange == 3);
     assert(counts.failed == 1);
 
+    
+    // Highest capacity (boundary condition)
+    int[] highestCapacity = {120};
+    CountsBySoH highestCounts = countBatteriesByHealth(highestCapacity);
+    assert(highestCounts.healthy == 1);
+
+    // Empty battery list (boundary condition)
+    int[] emptyList = {};
+    CountsBySoH emptyCounts = countBatteriesByHealth(emptyList);
+    assert(emptyCounts.healthy == 0 && emptyCounts.exchange == 0 && emptyCounts.failed == 0);
+    
+    // Lowest capacity (boundary condition)
+    int[] lowestCapacity = {0};
+    CountsBySoH lowestCounts = countBatteriesByHealth(lowestCapacity);
+    assert(lowestCounts.failed == 1);
+
     // Large dataset (boundary condition)
     int[] largeDataSet = {110, 115, 80, 95, 92, 70, 105, 98, 75, 88, 77, 120, 62, 45};
     CountsBySoH largeDataCounts = countBatteriesByHealth(largeDataSet);
