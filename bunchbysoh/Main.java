@@ -31,6 +31,13 @@ public class Main {
     assert(counts.exchange == 3);
     assert(counts.failed == 1);
 
+    // Large dataset (boundary condition)
+    int[] largeDataSet = {110, 115, 80, 95, 92, 70, 105, 98, 75, 88, 77, 120, 62, 45};
+    CountsBySoH largeDataCounts = countBatteriesByHealth(largeDataSet);
+    assert(largeDataCounts.healthy == 5);
+    assert(largeDataCounts.exchange == 6);
+    assert(largeDataCounts.failed == 3);
+
   }
 
   public static void main(String[] args) {
