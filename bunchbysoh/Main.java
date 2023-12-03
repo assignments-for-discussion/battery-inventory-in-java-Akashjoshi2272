@@ -38,6 +38,11 @@ public class Main {
     assert(largeDataCounts.exchange == 6);
     assert(largeDataCounts.failed == 3);
 
+    // Single battery (boundary condition)
+    int[] singleBattery = {70};
+    CountsBySoH singleCounts = countBatteriesByHealth(singleBattery);
+    assert(singleCounts.failed == 1);
+
   }
 
   public static void main(String[] args) {
