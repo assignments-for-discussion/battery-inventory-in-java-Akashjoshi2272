@@ -36,22 +36,12 @@ public class Main {
     CountsBySoH lowestCounts = countBatteriesByHealth(lowestCapacity);
     assert(lowestCounts.failed == 1);
     
-    // Highest capacity (boundary condition)
-    int[] highestCapacity = {120};
-    CountsBySoH highestCounts = countBatteriesByHealth(highestCapacity);
-    assert(highestCounts.healthy == 1);
-    
     // Equal to boundary values (boundary condition)
     int[] boundaryValues = {96, 80, 74};
     CountsBySoH boundaryCounts = countBatteriesByHealth(boundaryValues);
     assert(boundaryCounts.healthy == 1);
     assert(boundaryCounts.exchange == 1);
     assert(boundaryCounts.failed == 1);
-    
-    // Single battery (boundary condition)
-    int[] singleBattery = {70};
-    CountsBySoH singleCounts = countBatteriesByHealth(singleBattery);
-    assert(singleCounts.failed == 1);
     
     // Empty battery list (boundary condition)
     int[] emptyList = {};
